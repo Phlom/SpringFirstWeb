@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Create Record</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Create New Record</h1>
+        <form action="#" th:action="@{/addrecord}" th:object="${record}" method="post">
+            <input type="text" th:field="*{id}" id="id" placeholder="SSN">
+            <br>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <br>
+            <input type="text" th:field="*{gender}" id="gender" placeholder="Gender">
+            <br>
+            <input type="text" th:field="*{phone}" id="phone" placeholder="Phone">
+            <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+            <br>
+            <input type="submit" value="Add Record">   
+        </form>
+    </body>
+</html>
